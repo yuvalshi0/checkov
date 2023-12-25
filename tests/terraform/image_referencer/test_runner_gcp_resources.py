@@ -76,6 +76,7 @@ def test_cloud_run_resources(mocker: MockerFixture, graph_framework):
     assert len(sca_image_report.image_cached_results) == 1
     assert len(sca_image_report.skipped_checks) == 0
     assert len(sca_image_report.parsing_errors) == 0
+    bc_integration.bc_source = None
 
 
 @pytest.mark.parametrize("graph_framework", GRAPH_FRAMEWORKS)

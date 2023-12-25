@@ -9,6 +9,14 @@ import responses
 from checkov.common.bridgecrew.check_type import CheckType
 from checkov.common.secrets.consts import VerifySecretsResult
 
+@pytest.fixture(scope='module', autouse=True)
+def clean_bc_integration() -> None:
+    yield
+    from checkov.common.bridgecrew.platform_integration import bc_integration
+    bc_integration.bc_api_key = None
+    bc_integration.skip_download = False
+    bc_integration.customer_run_config_response = None
+
 
 @mock.patch.dict(os.environ, {"CKV_VALIDATE_SECRETS": "true"})
 def test_verify_secrets_insufficient_params_skip_download() -> None:
