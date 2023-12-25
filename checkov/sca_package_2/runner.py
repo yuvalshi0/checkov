@@ -54,11 +54,10 @@ class Runner(BaseRunner[None, None, None]):
             logging.info("The --bc-api-key flag needs to be set to run SCA package scanning")
             return None, dict()
 
-        if bc_integration.bc_source and bc_integration.bc_source.name in IDEsSourceTypes \
-                and not bc_integration.is_prisma_integration():
-            logging.info("The --bc-api-key flag needs to be set to a Prisma token for SCA scan for vscode or jetbrains extension")
-            return {}, dict()  # should just return an empty result
-
+        # if bc_integration.bc_source and bc_integration.bc_source.name in IDEsSourceTypes \
+        #         and not bc_integration.is_prisma_integration():
+        #     logging.info("The --bc-api-key flag needs to be set to a Prisma token for SCA scan for vscode or jetbrains extension")
+        #     return {}, dict()  # should just return an empty result
         self._code_repo_path = Path(root_folder) if root_folder else None
 
         if not bc_integration.timestamp and bc_integration.bc_source and not bc_integration.bc_source.upload_results:
