@@ -32,6 +32,7 @@ class TestRunnerValid(unittest.TestCase):
     def setUpClass(cls) -> None:
         cls.orig_checks = deepcopy(resource_registry.checks)
         cls.db_connector = cls.db_connector
+        resource_registry.__all_registered_checks = []
 
     def test_py_graph_check(self):
         if not self.db_connector == IgraphConnector:
@@ -913,6 +914,7 @@ class TestRunnerValid(unittest.TestCase):
 
     def tearDown(self) -> None:
         resource_registry.checks = deepcopy(self.orig_checks)
+        resource_registry.__all_registered_checks = []
 
 
 if __name__ == "__main__":
