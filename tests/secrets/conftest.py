@@ -11,7 +11,8 @@ def mock_bc_integration():
     from checkov.common.bridgecrew.platform_integration import bc_integration
     bc_integration.bc_api_key = "abcd1234-abcd-1234-abcd-1234abcd1234"
     bc_integration.skip_download = False
-    return bc_integration
+    bc_integration.bc_source = None
+    yield bc_integration
 
 
 @pytest.fixture
