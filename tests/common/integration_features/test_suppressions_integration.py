@@ -74,9 +74,13 @@ class TestSuppressionsIntegration(unittest.TestCase):
         instance = BcPlatformIntegration()
         instance.repo_id = 'org/repo'
 
+        old_bc_to_ckv_id_mapping = metadata_integration.bc_to_ckv_id_mapping
+        old_bc_integration = metadata_integration.bc_integration
+
         metadata_integration.bc_to_ckv_id_mapping = {
             'BC_AWS_1': 'CKV_AWS_20'
         }
+
         metadata_integration.bc_integration = instance
 
         suppressions_integration = SuppressionsIntegration(instance)
@@ -197,6 +201,9 @@ class TestSuppressionsIntegration(unittest.TestCase):
         }
 
         self.assertTrue(suppressions_integration._suppression_valid_for_run(suppression))
+
+        metadata_integration.bc_to_ckv_id_mapping = old_bc_to_ckv_id_mapping
+        metadata_integration.bc_integration = old_bc_integration
 
     def test_policy_suppression(self):
         instance = BcPlatformIntegration()
