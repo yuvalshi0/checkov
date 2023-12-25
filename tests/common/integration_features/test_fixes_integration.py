@@ -113,7 +113,6 @@ class TestFixesIntegration(unittest.TestCase):
         self._old_check_metadata = metadata_integration.check_metadata
 
     def tearDown(self) -> None:
-        breakpoint()
         metadata_integration.check_metadata = self._old_check_metadata
         metadata_integration.bc_to_ckv_id_mapping = {}
 
