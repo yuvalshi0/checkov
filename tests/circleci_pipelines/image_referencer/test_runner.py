@@ -55,6 +55,8 @@ def test_circleCI_workflow(mocker: MockerFixture, file_path, image_cached_result
     assert len(sca_image_report.extra_resources) == 10
     assert len(sca_image_report.image_cached_results) == 10
 
+    bc_integration.bc_source = None
+
 
 def test_runner_image_check(file_path):
     test_file = RESOURCES_PATH / file_path

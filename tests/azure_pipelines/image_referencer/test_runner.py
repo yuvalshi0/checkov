@@ -55,3 +55,5 @@ def test_azure_pipelines_workflow(mocker: MockerFixture):
     assert len(sca_image_report.image_cached_results) == 1
     assert len(sca_image_report.skipped_checks) == 0
     assert len(sca_image_report.parsing_errors) == 0
+
+    bc_integration.bc_source = None

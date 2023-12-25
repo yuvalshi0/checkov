@@ -17,6 +17,11 @@ from checkov.common.models.enums import CheckResult, ErrorStatus
 
 EXAMPLES_DIR = Path(__file__).parent / "examples"
 
+@pytest.fixture()
+def clean_bc_integration():
+    yield
+    bc_integration.bc_api_key = None
+    bc_integration.bc_source = None
 
 def test_upload_scannable_files():
     # when
