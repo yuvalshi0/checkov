@@ -793,3 +793,6 @@ class TestLoadDetectors(unittest.TestCase):
                             runner_filter=RunnerFilter(framework=['secrets'],
                                                        enable_secret_scan_all_files=True))
         self.assertEqual(len(report.failed_checks), 1)
+
+    def tearDown(self) -> None:
+        bc_integration.customer_run_config_response = None

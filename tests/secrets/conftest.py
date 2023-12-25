@@ -13,6 +13,20 @@ def mock_bc_integration():
     bc_integration.skip_download = False
     bc_integration.bc_source = None
     yield bc_integration
+    bc_integration.bc_api_key = None
+    bc_integration.repo_id = None
+    bc_integration.repo_branch = None
+    bc_integration.bc_source = None
+    bc_integration.skip_fixes = False
+    bc_integration.bc_source_version = None
+    bc_integration.bucket = None
+    bc_integration.repo_path = None 
+    bc_integration.credentials = None
+    bc_integration.support_bucket = None
+    bc_integration.support_repo_path = None
+    bc_integration.use_s3_integration = False
+    bc_integration.platform_integration_configured = False
+    bc_integration.credentials = None
 
 
 @pytest.fixture
