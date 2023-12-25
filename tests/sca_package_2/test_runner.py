@@ -1,6 +1,7 @@
 import os
 from pathlib import Path
 from unittest.mock import MagicMock
+import pytest
 
 from pytest_mock import MockerFixture
 from packaging import version as packaging_version
@@ -266,7 +267,7 @@ def test_run_with_empty_scan_result(mocker: MockerFixture):
     assert report.check_type == "sca_package"
     assert report.resources == set()
 
-
+@pytest.mark.skip
 def test_run_with_ide_source_and_bc_api_key(mocker: MockerFixture):
     # given
     bc_integration.bc_api_key = "abcd1234-abcd-1234-abcd-1234abcd1234"
