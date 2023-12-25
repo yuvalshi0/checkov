@@ -72,4 +72,4 @@ jobs:
       - name: Unit tests
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: pipenv run python -m pytest tests -vvv --log-cli-level=DEBUG
+        run: pipenv run python -m pytest tests
