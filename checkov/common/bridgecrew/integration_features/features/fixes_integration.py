@@ -57,6 +57,7 @@ class FixesIntegration(BaseIntegrationFeature):
         # runs one file at a time, this can wait.
 
         sorted_by_file = sorted(scan_report.failed_checks, key=lambda c: c.file_abs_path)
+
         for file, sorted_failed_checks in groupby(sorted_by_file, key=lambda c: c.file_abs_path):
             failed_checks = [fc for fc in sorted_failed_checks if fc.check_id in metadata_integration.check_metadata]
             if not failed_checks:
